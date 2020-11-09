@@ -129,33 +129,19 @@ int main()
 }
 
 /*
-Student 1 is enrolled in exam 1
-Student 1 is enrolled in exam 2
-Student 2 is enrolled in exam 3
-Student 2 is enrolled in exam 4
-Student 2 is enrolled in exam 5
-Student 3 is enrolled in exam 3
-Student 3 is enrolled in exam 5
-Student 4 is enrolled in exam 2
-Student 5 is enrolled in exam 1
-Student 5 is enrolled in exam 3
-Student 6 is enrolled in exam 3
-Student 6 is enrolled in exam 5
-#################################
-Exam 1 Enrolled students: 1 5
-Exam 2 Enrolled students: 1 4
-Exam 3 Enrolled students: 2 3 5 6
-Exam 4 Enrolled students: 2
-Exam 5 Enrolled students: 2 3 6
-1 2 1
-1 3 1
-2 1 1
-3 1 1
-3 4 1
-3 5 3
-4 3 1
-4 5 1
-5 3 3
-5 4 1
-Conflict Density: 0.4
+/*
+Conflict Density: 0.137732
+Conflict Density: 0.128198
+Conflict Density: 0.26554
+Conflict Density: 0.415485
+Conflict Density: 0.0554581
+Conflict Density: 0.0624272
+Conflict Density: 0.0294831
+Conflict Density: 0.075124
+Conflict Density: 0.142953
+Conflict Density: 0.180003
+Conflict Density: 0.125355
+Conflict Density: 0.0844754
+Conflict Density: 0.287293
+*/
 */
