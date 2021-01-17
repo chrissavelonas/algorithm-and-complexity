@@ -12,9 +12,9 @@
 ## Οδηγίες εγκατάστασης
 
 
-#### Για την εκτελεση του κωδικα θα χρειαστει να εγκαταστησετε το  [Visual Studio Code](https://code.visualstudio.com/download) στον υπολογηστη σας
+#### Για την εκτέλεση του κώδικα θα χρειαστεί να εγκαταστήσετε το  [Visual Studio Code](https://code.visualstudio.com/download) στον υπολογιστή σας
 
-#### Για να μπορεσετε να το κανετε compile θα πρεπει να κατεβασετε το προγραμμα  [tdm-gcc](https://sourceforge.net/projects/tdm-gcc/)
+#### Για να μπορέσετε να το κάνετε compile θα πρέπει να κατεβάσετε το πρόγραμμα  [tdm-gcc](https://sourceforge.net/projects/tdm-gcc/)
 
 #### Για να μπορέσετε να κατεβάσετε τον κώδικα από τι GitHub θα πρέπει να κατεβάσετε το  [Git](https://git-scm.com/)
 
