@@ -26,8 +26,8 @@
 
 #### Εφόσον το κατεβάσουμε μπαίνουμε μέσα στον φάκελο src μέσω του CMD
 
-#### Πληκτρολογούμε  την εντολή `g++ main.cpp GraphColoring.cpp Vertex.cpp -o start -std=c++17 -Wall`
+#### Πληκτρολογούμε  την εντολή `g++ main.cpp GraphColoring.cpp Vertex.cpp -o play-std=c++17 -Wall`
 
-#### Αν το compile έγινε επιτυχώς πληκτρολογούμε στην συνέχεια την εντολή `start`
+#### Αν το compile έγινε επιτυχώς πληκτρολογούμε στην συνέχεια την εντολή `play`
 
 
