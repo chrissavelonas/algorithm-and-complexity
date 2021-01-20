@@ -19,7 +19,7 @@ private:
     int min, med, max;
     double mean;
     double CV;
-    std ::string problemName;
+    std ::string dataset;
     std ::vector<int> sequenceDegree;
     std ::string statisticArray[13] = {
         "Name: car-f-92 |V|: 543 Conflict Density: 0.137732 Min: 0 Med: 64 Max: 381 Mean: 74.788214 CV(%): 75.345322%",
@@ -34,13 +34,14 @@ private:
         "Name: tre-s-92 |V|: 261 Conflict Density: 0.180003 Min: 0 Med: 45 Max: 145 Mean: 46.980843 CV(%): 59.618694%",
         "Name: uta-s-92 |V|: 622 Conflict Density: 0.125355 Min: 1 Med: 65 Max: 303 Mean: 77.971061 CV(%): 73.671041%",
         "Name: ute-s-92 |V|: 184 Conflict Density: 0.084475 Min: 2 Med: 13 Max: 58 Mean: 15.543478 CV(%): 69.135061%",
+        "Name: car-f-92 |V|: 543 Conflict Density: 0.137732 Min: 0 Med: 64 Max: 381 Mean: 74.788214 CV(%): 75.345322%",
     };
     std ::vector<Vertex> vertices;
     std::set<int, std::greater<int>> colors;
 
 public:
     Graph();
-    Graph(int exams, std::string problemName);
+    Graph(int exams, std::string dataset);
     ~Graph();
     void initaiLizedAdj_Martix(std::vector<std::set<int>> examStudents);
     void addEdge(int i, int j);

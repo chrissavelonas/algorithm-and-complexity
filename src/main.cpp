@@ -11,7 +11,7 @@ using namespace std;
 void selectAlgorithm(Graph *g)
 {
     cout << "1) First Fit" << endl;
-    cout << "2) DSatur" << endl;
+    cout << "2) DSatur(Degree Of Saturation)" << endl;
 
     int option;
     cin >> option;
@@ -80,7 +80,7 @@ void readData(string fn, int exams)
 void selectFile()
 {
     //Problems
-    string datasets[14] = {
+    string datasets[13] = {
         "../datasets/car-f-92.stu",  //0
         "../datasets/car-s-91.stu",  //1
         "../datasets/ear-f-83.stu",  //2
@@ -94,14 +94,14 @@ void selectFile()
         "../datasets/uta-s-92.stu",  //10
         "../datasets/ute-s-92.stu",  //11
         "../datasets/yor-f-83.stu",  //12
-        "../datasets/toy_e5_s6.stu", //13 no toronto data, created for tests
+
 
     };
-    int exams[14] = {543, 682, 190, 81, 461, 381, 2419, 486, 139, 261, 622, 184, 181, 5};
+    int exams[13] = {543, 682, 190, 81, 461, 381, 2419, 486, 139, 261, 622, 184, 181};
 
     int option;
 
-    for (int i = 0; i < 14; i++)
+    for (int i = 0; i < 13; i++)
         cout << i + 1 << ") " << datasets[i].substr(12, 8) << endl;
 
     cin >> option;
@@ -153,5 +153,3 @@ int main()
 
     return 0;
 }
-//  g++ main.cpp GraphColoring.cpp Vertex.cpp -o main -std=c++17 -Wall
-//  g++ main.cpp Graph.cpp -o main -std=c++17 -Wall -Wextra

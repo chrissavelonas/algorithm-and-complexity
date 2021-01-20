@@ -1,9 +1,9 @@
 #include "GraphColoring.hpp"
 Graph::Graph() {}
-Graph::Graph(int exams, std::string problemName)
+Graph::Graph(int exams, std::string dataset)
 {
     this->exams = exams;
-    this->problemName = problemName;
+    this->dataset = dataset;
     adj_Matrix = new std::list<Vertex>[exams];
     adj = new std::list<int>[exams];
     colors.insert(1);
@@ -177,36 +177,35 @@ void Graph::first_fit()
 
 void Graph::DSatur()
 {
-
+  
     int colorOfVertex[exams];
-
-    int mvd = maximumVertexDegree();
-
+    int vertexD = vertexDegree();
     for (int v = 0; v < exams; v++)
         colorOfVertex[v] = -1;
 
-    colorOfVertex[mvd] = *colors.end();
-    vertices[mvd].setSatur(-1);
-    vertices[mvd].setVertexColored(true);
+    colorOfVertex[vertexD] = *colors.end();
+    vertices[vertexD].setSatur(-1);
+    vertices[vertexD].setVertexColored(true);
 
-    for (auto it = adj_Matrix[mvd].begin(); it != adj_Matrix[mvd].end(); ++it)
+    for (auto it = adj_Matrix[vertexD].begin(); it != adj_Matrix[vertexD].end(); ++it)
     {
-        if (!(vertices[it->getVertex()].checkNeighborColor(colorOfVertex[it->getVertex()], mvd, adj_Matrix[it->getVertex()], colorOfVertex, vertices)))
+        if (!(vertices[it->getVertex()].checkNeighborColor(colorOfVertex[it->getVertex()],
+                                                           vertexD, adj_Matrix[it->getVertex()],
+                                                           colorOfVertex, vertices)))
             vertices[it->getVertex()].raiseSatur();
     }
 
     while (!graphIsColored())
-    {
-        int maxSaturDegree = -1;
+    { //declare max saturation
+        int saturationDegree = -1;
         for (auto it = vertices.begin(); it != vertices.end(); ++it)
-            if ((it->getSatur() > maxSaturDegree) && !(it->isVertexColored()))
-                maxSaturDegree = it->getSatur();
-
+            if ((it->getSatur() > saturationDegree) && !(it->isVertexColored()))
+                saturationDegree = it->getSatur();
         int maxSaturVertex;
         int degree = -1;
         for (auto it : vertices)
         {
-            if ((it.getSatur() == maxSaturDegree) && !(it.isVertexColored()))
+            if ((it.getSatur() == saturationDegree) && !(it.isVertexColored()))
             {
                 if (it.getDegree() > degree)
                 {
@@ -215,7 +214,6 @@ void Graph::DSatur()
                 }
             }
         }
-
         //color vertex
         std::set<int, std::greater<int>> aux;
         std::set<int, std::greater<int>> diff;
@@ -238,12 +236,12 @@ void Graph::DSatur()
             colors.insert(newColor);
             colorOfVertex[maxSaturVertex] = *colors.end();
         }
-
         vertices[maxSaturVertex].setVertexColored(true);
-
         //update Neighbors
         for (auto it = adj_Matrix[maxSaturVertex].begin(); it != adj_Matrix[maxSaturVertex].end(); ++it)
-            if (!(vertices[it->getVertex()].checkNeighborColor(colorOfVertex[maxSaturVertex], maxSaturVertex, adj_Matrix[it->getVertex()], colorOfVertex, vertices)))
+            if (!(vertices[it->getVertex()].checkNeighborColor(colorOfVertex[maxSaturVertex],
+                                                               maxSaturVertex, adj_Matrix[it->getVertex()],
+                                                               colorOfVertex, vertices)))
                 vertices[it->getVertex()].raiseSatur();
     }
 
@@ -256,7 +254,8 @@ void Graph::sortVerticesByDegree(std::vector<Vertex> &v)
 {
     std::sort(v.rbegin(), v.rend());
 }
-int Graph::maximumVertexDegree()
+//find the max degrees
+int Graph::vertexDegree()
 {
     int max = getDegree(0);
     int vertex = 0;
@@ -271,6 +270,7 @@ int Graph::maximumVertexDegree()
     }
     return vertex;
 }
+//check the already colored degrees
 bool Graph::graphIsColored()
 {
     for (auto it : vertices)
@@ -294,7 +294,12 @@ int Graph::getVertices() { return exams; }
 
 std::string Graph::toString()
 {
-    return "Name: " + this->problemName.substr(12, 8) + " |V|: " + std::to_string(exams) + " Conflict Density: " + std::to_string(confDen) +
-           " Min: " + std::to_string(min) + " Med: " + std::to_string(med) + " Max: " + std::to_string(max) +
-           " Mean: " + std::to_string(mean) + " CV(%): " + std::to_string(CV) + "%";
+    return "Name: " + this->dataset.substr(12, 8) + " |V|: " 
+    + std::to_string(exams) + " Conflict Density: " 
+    + std::to_string(confDen) +" Min: " 
+    + std::to_string(min) + " Med: " 
+    + std::to_string(med) + " Max: " 
+    + std::to_string(max) +" Mean: " 
+    + std::to_string(mean) + " CV(%): " 
+    + std::to_string(CV) + "%";
 }
