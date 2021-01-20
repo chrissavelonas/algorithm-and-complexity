@@ -53,7 +53,7 @@ public:
     void first_fit();
     void DSatur();
     void sortVerticesByDegree(std::vector<Vertex> &v);
-    int maximumVertexDegree();
+    int vertexDegree();
     bool graphIsColored();
     bool checkNeighborColor(int color, int source);
     void printStatisticArray();
